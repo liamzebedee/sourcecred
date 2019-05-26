@@ -17,3 +17,29 @@ export type Commit = {|
   +shortHash: string,
   +summary: string, // Oneline commit summary
 |};
+
+export type Path = string;
+export type CommitDiff = {|
+  +commit: Hash,
+  +prevCommit: Hash,
+  +changedFiles: {[Path]: ChangedFile},
+|};
+
+export opaque type FileChangeT = Symbol;
+export const FileChange: {|
+  +ADDED: FileChangeT,
+  +MODIFIED: FileChangeT,
+  +DELETED: FileChangeT,
+  +RENAMED: FileChangeT,
+|} = Object.freeze({
+  +ADDED: Symbol("ADDED"),
+  +MODIFIED: Symbol("MODIFIED"),
+  +DELETED: Symbol("DELETED"),
+  +RENAMED: Symbol("RENAMED")
+});
+
+export type ChangedFile = {|
+  +changeType: FileChangeT
+|};
+
+
