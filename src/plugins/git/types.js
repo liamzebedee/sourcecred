@@ -35,11 +35,12 @@ export const FileChange: {|
   +ADDED: Symbol("ADDED"),
   +MODIFIED: Symbol("MODIFIED"),
   +DELETED: Symbol("DELETED"),
-  +RENAMED: Symbol("RENAMED")
+  +RENAMED: Symbol("RENAMED"),
 });
 
 export type ChangedFile = {|
-  +changeType: FileChangeT
+  +path: Path,
+  +changeType: FileChangeT,
 |};
 
 
